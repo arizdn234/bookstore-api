@@ -33,11 +33,13 @@ npm start
 The API will be accessible at `http://localhost:3000`.
 
 ## Endpoints
-- GET /books: Get a list of all books.
-- GET /books/:id: Get details of a specific book.
-- POST /books: Add a new book to the bookstore.
-- PUT /books/:id: Update details of a specific book.
-- DELETE /books/:id: Delete a specific book.
+| Method | Path | Response |
+| --- | --- | --- |
+| GET | /books | Get a list of all books. |
+| GET | /books/:id | Get details of a specific book. |
+| POST | /books | Add a new book to the bookstore. |
+| PUT | /books/:id | Update details of a specific book. |
+| DELETE | /books/:id | Delete a specific book. |
 
 ---
 ---
