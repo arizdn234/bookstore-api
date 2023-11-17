@@ -3,10 +3,10 @@ const { Book } = require('../models')
 class bookController {
     static async getAllBooks (req, res) {
         try {
-            const data = await Book.findAll()
+            const book = await Book.findAll()
             res.status(200).json({
                 status: 'success',
-                data
+                data: book
             })
         } catch (error) {
             res.status(400).json({
@@ -19,14 +19,14 @@ class bookController {
     static async createBook (req, res) {
         try {
             const { title, author, stock } = req.body
-            const data = await Book.create({
+            const book = await Book.create({
                 title,
                 author,
                 stock
             }) 
             res.status(201).json({
                 status: 'success',
-                data
+                data: book
             })
         } catch (error) {
             res.status(400).json({
@@ -39,9 +39,9 @@ class bookController {
     static async getBookByID (req, res) {
         try {
             const bookID = req.params.id
-            const data = await Book.findByPk(bookID)
+            const book = await Book.findByPk(bookID)
 
-            if (!data) {
+            if (!book) {
                 return res.status(404).json({
                     status: 'failed',
                     message: 'Book not found'
@@ -50,7 +50,7 @@ class bookController {
             
             res.status(200).json({
                 status: 'success',
-                data
+                data: book
             })
         } catch (error) {
             res.status(400).json({
@@ -64,16 +64,16 @@ class bookController {
         try {
             const bookID = req.params.id
             const { title, author, stock } = req.body
-            const data = await Book.findByPk(bookID)
+            const book = await Book.findByPk(bookID)
 
-            if (!data) {
+            if (!book) {
                 return res.status(404).json({
                     status: 'failed',
                     message: 'Book not found'
                 })
             }
 
-            await data.update({
+            await book.update({
                 title,
                 author,
                 stock
@@ -81,7 +81,7 @@ class bookController {
             
             res.status(200).json({
                 status: 'success',
-                data
+                data: book
             })
         } catch (error) {
             res.status(400).json({
@@ -94,18 +94,18 @@ class bookController {
     static async deleteBookByID (req, res) {
         try {
             const bookID = req.params.id
-            const data = await Book.findByPk(bookID)
+            const book = await Book.findByPk(bookID)
 
-            if (!data) {
+            if (!book) {
                 return res.status(404).json({
                     status: 'failed',
                     message: 'Book not found'
                 })
             }
 
-            await data.destroy()
+            await book.destroy()
             
-            res.status(204).json({
+            res.status(200).json({
                 status: 'success',
                 message: 'Successfully deleted'
             })
