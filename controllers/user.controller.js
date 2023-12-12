@@ -35,7 +35,8 @@ class UserController {
                 password: req.body.password,
             }
 
-            const user = await User.findOne({ where: { email: payload.email }
+            const user = await User.findOne({ 
+                where: { email: payload.email }
             })
 
             const comparedPassword = comparePassword(payload.password, user.password);

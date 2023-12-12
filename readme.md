@@ -54,10 +54,11 @@ The API will be accessible at `http://localhost:3000`.
 | POST | /register | User account register. | - |
 | POST | /login | User account login. | - |
 | GET | /books | Get a list of all books. | - |
-| GET | /books/:id | Get details of a specific book. | admin/customer |
-| POST | /books | Add a new book to the bookstore. | admin |
-| PUT | /books/:id | Update details of a specific book. | admin |
-| DELETE | /books/:id | Delete a specific book. | admin |
+| GET | /books/:id | Get details of a specific book. | customer |
+| GET | /admin/books/:id | Get details of a specific book. | admin |
+| POST | /admin/books | Add a new book to the bookstore. | admin |
+| PUT | /admin/books/:id | Update details of a specific book. | admin |
+| DELETE | /admin/books/:id | Delete a specific book. | admin |
 
 ---
 ---
