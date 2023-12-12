@@ -74,7 +74,7 @@ npm init
 
 2. Install dependecies
 ```sh
-npm install
+npm install <package_name>
 ```
 
 3. Initialize Sequelize-cli
